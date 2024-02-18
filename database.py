@@ -5,7 +5,6 @@ connection=sqlite3.connect("users.db")
 
 #create a cursor object to inswert record,table,retrive
 cursor=connection.cursor()
-# cursor.execute('''drop table Student''')
 table_info="""
 
 
@@ -70,6 +69,7 @@ cursor.execute('''INSERT INTO orders (user_id, product_id, quantity, order_date)
 
 
 print("the inserted records are")
+#cursor object gets consumed after exceuting a query so fetchall is used
 data=cursor.execute('''SELECT *FROM user_details''').fetchall()
 data2=cursor.execute('''SELECT *FROM products''').fetchall()
 data3=cursor.execute('''SELECT *FROM orders''').fetchall()
